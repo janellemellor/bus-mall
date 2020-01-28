@@ -22,6 +22,9 @@
 
 ### Variables
 * Store library of variables here for reference? 
+    * productData = array of products (main source of truth of data). From ../data/productData.js
+    * div id = "user testing div" in HTML. To attach renderProducts to. 
+
 
 
 ### Steps

@@ -1,4 +1,3 @@
-
 export const productData = [
     { 
         id: '1',
