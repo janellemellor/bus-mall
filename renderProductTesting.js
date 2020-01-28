@@ -1,3 +1,6 @@
+//note: switch up/chnage render function to hard code radio buttons and then use query selector to loop through radio buttons
+
+
 export default function renderProductTesting(productData) {
 
     //get product id from productData.js
