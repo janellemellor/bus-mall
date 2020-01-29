@@ -15,22 +15,28 @@
         <h3>Thank you for participating as part of our focus group to bring you the best products BusMall has to offer on every bus, every time.</h3>
     </header>
 
-    <section>
-        <p>Please select which image you would be most likely to purchase...</p>
-
-        <div id = "user testing div"></div>
-
         <form>
+            <p>Please select which image you would be most likely to purchase...</p>
             <label>
                 <span id = "product1span"></span>
-                <input id = "product1" type="radiio" name="product"/>
+                <input id = "product1" type="radio" name="product"/>
             </label>
-            <button></button>
+
+            <label>
+                <span id = "product2span"></span>
+                <input id = "product2" type="radio" name="product"/>
+            </label>
+
+            <label>
+                <span id = "product3span"></span>
+                <input id = "product3" type="radio" name="product"/>
+            </label>
+
+            <button id = "button">Submit</button>
         </form>
-    </section>
+    
     <span id = "results"></span>
     <script type="module" src="app.js"></script>
-    <script type="module" src="renderProductTesting.js"></script>
 </body>
 
 </html>

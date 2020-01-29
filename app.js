@@ -1,139 +1,88 @@
-import products from './data/products.js';
+//import data 
+import productData from './data/products.js';
 
-const productData = products.slice();
+//make a copy of original products data
+const sliceOfProductData = productData.slice();
 
-//keep track of how many times a user has voted, period (up to 25)
-let totalVotes ;
-//keep track of votes for a given product
+//get radio button inputs
+const radioButtonOne = document.getElementById('product1');
+const radioButtonTwo = document.getElementById('product2');
+const radioButtonThree = document.getElementById('product3');
 
+//get span ids for radio buttons
+const productOneSpan = document.getElementById('product1span');
+const productTwoSpan = document.getElementById('product2span');
+const productThreeSpan = document.getElementById('product3span');
 
-let productVoteDetails;
+//get submit button
+const button = document.getElementById('button');
 
-
-const initializeState = () => {
-    totalVotes = 0; 
-    productVoteDetails = [];
-};
-
-initializeState();
-
-// display three random NON-duplicated products
-//display three NEW NON-duplicated products (refresh products between votes)
-const displayThreeProducts = () => {
-    //GET three random products from our data
-    const product1 = getRandomProduct(productData);    
-    let product2 = getRandomProduct(productData); 
-    let product3 = getRandomProduct(productData);
-
- //make sure the products are unique (check repo for whether ids are names)
-    while (product1.id === product2.id || product2.id === product3.id || product1.id === product3.id) {
-
-        
-        product2 = getRandomProduct(productData);
-        product3 = getRandomProduct(productsData)
-    } 
-
-};
+//get results span
+const resultsSpan = document.getElementById('results');
 
 
-function getRandomProduct(someProducts) {
-    const randomIndex = Math.floor(Math.random() * productsData.length); 
-    const randomProduct = productsData[randomNumber];
-    
-   
+//set state to undefined to keep track of how many times a user has voted (up to 25 times)
+let numberOfVotes;
 
-    //render these three items on the screen as radio buttons with the same name and different values
-    const radio1 = document.getElementById('product1');
-    const radio1Span = document.getElementById('product1span');
+//set state to undefined keep track of the number of votes for a given product
+let numberOfProductVotes;
 
-    radio1.value = product1.name;
-    radio1Span.textContent = product1.name;
-
-    const form = document.querySelector('form');
+//may need to set state to refresh/initialize upon load...
 
 
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        //prevent default keeps the browser from auto-refreshing
+// make a function to display three new random images
 
-        const formData = new FormData(form);
+function displayRandomProductImage() {
+    Math.floor(Math.random() * productData.length);
+}
 
-        const selectedProductID = formData.get(product);
-        //.get eats the name (product is the common name shared by the radio buttons)
-       
+// NON-duplicated products (refresh products between votes)
 
-        //EVENT LISTENER
-        //add an event listener to each radio button select one of the three products
-        //when they select, update the total votes 
-        totalVotes++;
+//make sure the products are unique.
 
-        //whichever one they clicked on, see if they've voted for it before
-        const productInVotesArray = findById(productVoteDetails, selectedProductID);
+//render these three items on the screen as radio buttons with the same name (product) and different values
 
-        if (productInVotesArray) {
-            //if product in votes array exists,
-            productInVotesArray.votes++;
-            //increase the vote count
-        } else {
-            const newVoteObject = {
-                id: selectedProductID,
-                votes: 1,
-            };
-        productVoteDetails.push(newVoteObject); 
-        }
+//prevent default keeps the browser from auto-refreshing
 
-        if (totalVotes >= 25) {
-            window.location = 'results.html';
-            //sends the user to a different results page
+ //.get eats the name (product is the common name shared by the radio buttons)
+
+//Make EVENT LISTENER
+//add an event listener to each radio button to select one of the three products
+
+//when they select, update the total votes 
+
+//whichever one they clicked on, see if they've voted for it before
+    //if product in votes array exists,
+    //increase the vote count
+
+     //sends the user to a different results page
 
 
-            // document.querySelector('button').disable = true;
-            // alert('thank you for your participation'); 
-            // alert(JASON.stringify(productVoteDetails, 0, 2));
-            // reset();
+// document.querySelector('button').disable = true;
+// alert('thank you for your participation'); 
+// alert(JASON.stringify(productVoteDetails, 0, 2));
+// reset();
 
-        }
-        //check where local storage needs to go
-        localStorage.setItem('votes', productVoteDetails)
+//check where local storage needs to go
 
-        displayThreeProducts();
+//update the productVoteDetails
+ //if there's coffee in the votes array,increment the votes for coffee in the array
+//if there's no coffee in the votes array, push some coffee into the array. 
 
-        //update the productVoteDetails
-            //if there's coffee in the votes array,increment the votes for coffee in the array
-            //if there's no coffee in the votes array, push some coffee into the array. 
-};
+ //reset the whole app when finished
+//set the votes array ([]) and total votes (0) to their initial states
 
 
 
-function reset() {
-    initializeState();
-};
-
-displayThreeProducts();
-//reset the whole app when finished
-    //set the votes array ([]) and total votes (0) to their initial states
-
-
-
-//STRETCH dont' show the same product twice in a row?
+//STRETCH don't show the same product twice in a row?
 //STRETCH keep track of how many times a product appears so we can build a percentage (times clicked/times shown)
 
 
 //make vote array for canvas results: 
-const myVotes = [
-    {id: 'coffee', votes: 3},
-    {id: 'banana', votes: 5},
-]
 
-const votes = [];
-const labels = [];
-
-myVotes.forEach(item => votes.push(item.votes));
 //Do the same format above for labels using labels in place of votes.
 
 //change "data" to votes in chart.js
 
 
-const results = JSON.parse(localStorage.getItem('votes'));
-document.getElementById('results').textContent = JSON.stringify(results, 0, 2);
 
