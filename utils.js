@@ -1,16 +1,24 @@
-// create a function that will generate random images and use while loop to set them so that they don't match
 import productData from './data/products.js';
 
-function getRandomProduct(productData) {
-    productData.forEach(element =>{
-        return productData.img);
-            };
+
+// make a function to display three new random images:
+    //declare new function getRandomProduct which will take in some, non specific product data (indicated by "some")
+export function getRandomProduct(someProductData) {
+    //declare randomNumber which generates a random number and rounds it down (math.floor) then multiplies it by the number of objects in the productData array. 
+    const randomNumber = Math.floor(Math.random() * productData.length);
+    //declare randomProduct which takes a slice of the productData array and gets some, non-specific random number (again indicated by "some")
+    const randomProduct = sliceOfProductData[grabSomeRandomNumber];
+}
 
 
-while (productData.id === )
 
 
-// create a function to remove images that have already been selected
+
+
+
+
+
+
 
 
 

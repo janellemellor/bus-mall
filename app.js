@@ -1,5 +1,6 @@
 //import data 
 import productData from './data/products.js';
+import { getRandomProductImage } from './utils';
 
 //make a copy of original products data
 const sliceOfProductData = productData.slice();
@@ -30,11 +31,11 @@ let numberOfProductVotes;
 //may need to set state to refresh/initialize upon load...
 
 
-// make a function to display three new random images
+// make a function to generate a random product (getRandomProduct, now in utils)
 
-function displayRandomProductImage() {
-    Math.floor(Math.random() * productData.length);
-}
+    //use getRandomProduct Function to display three random images
+
+
 
 // NON-duplicated products (refresh products between votes)
 
