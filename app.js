@@ -1,6 +1,6 @@
 //import data 
 import productData from './data/products.js';
-import { getRandomProductImage } from './utils';
+import { getRandomProduct } from './utils.js';
 
 //make a copy of original products data
 const sliceOfProductData = productData.slice();
@@ -33,13 +33,41 @@ let numberOfProductVotes;
 
 // make a function to generate a random product (getRandomProduct, now in utils)
 
-    //use getRandomProduct Function to display three random images
+//use getRandomProduct Function to display three random images. Import function from utils at top of page.
+function displayRandomProductImages() {
+    //declare three variables for the three images and set equal a randomized product from the slice of real product data
+    let randomProductImage1 = getRandomProduct(sliceOfProductData);
+    let randomProductImage2 = getRandomProduct(sliceOfProductData);
+    let randomProductImage3 = getRandomProduct(sliceOfProductData);
 
+    console.log (randomProductImage1);
+    console.log (randomProductImage2);
+    console.log (randomProductImage3);
 
+    //while any of the product ids match each other...
+    while (randomProductImage1.id === randomProductImage2.id 
+        || randomProductImage2.id === randomProductImage3.id 
+        || randomProductImage3.id === randomProductImage1.id
+    ) {
+        //...get a new random product. 
+        randomProductImage2 = getRandomProduct(sliceOfProductData);
+        randomProductImage3 = getRandomProduct(sliceOfProductData);     
+    }
 
+    //render the random images in the browser as radio buttons
+    radioButtonOne.value = randomProductImage1.id;
+    radioButtonTwo.value = randomProductImage2.id;
+    radioButtonThree.value = randomProductImage3.id;
+
+    //render the name of the image in the span of the radio button
+    productOneSpan.textContent = randomProductImage1.name;
+    productTwoSpan.textContent = randomProductImage2.name;
+    productThreeSpan.textContent = randomProductImage3.name;
+
+}
+
+displayRandomProductImages();
 // NON-duplicated products (refresh products between votes)
-
-//make sure the products are unique.
 
 //render these three items on the screen as radio buttons with the same name (product) and different values
 

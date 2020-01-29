@@ -23,9 +23,6 @@
 ### Variables
 * Store library of variables here for reference? 
     * productData = array of products (main source of truth of data). From ../data/productData.js
-    * div id = "user testing div" in HTML. To attach renderProducts to. 
-
-
 
 ### Steps
 1. Read through lab instructions carefully. 
@@ -33,6 +30,7 @@
 1. Create plan.md file and use it to document the transition plan. ACP. 
 1. Start creating files/folders that will be needed (see data/pages/functions sections above)
 1. Create array of product objects in a .js file under data. This will be needed to match images to when user selects. Export.
+1. Write out comments/process in app.js for everything that needs to happen. 
 1. Test and create a series of functions that will select three random photos from the product array and display them side by side. One file?
     * They will need to be random
     * They need to not match each other (no repeating images at the same time)
