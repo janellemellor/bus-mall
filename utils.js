@@ -1,4 +1,5 @@
-import productData from './data/products.js';
+// import productData from './data/products.js';
+//may not need import above
 
 
 // make a function to display three new random images:

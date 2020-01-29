@@ -40,6 +40,7 @@ function displayRandomProductImages() {
     let randomProductImage2 = getRandomProduct(sliceOfProductData);
     let randomProductImage3 = getRandomProduct(sliceOfProductData);
 
+    //check if it's working
     console.log (randomProductImage1);
     console.log (randomProductImage2);
     console.log (randomProductImage3);
@@ -54,15 +55,23 @@ function displayRandomProductImages() {
         randomProductImage3 = getRandomProduct(sliceOfProductData);     
     }
 
-    //render the random images in the browser as radio buttons
+    //render the random products in the browser as radio buttons
     radioButtonOne.value = randomProductImage1.id;
     radioButtonTwo.value = randomProductImage2.id;
     radioButtonThree.value = randomProductImage3.id;
 
-    //render the name of the image in the span of the radio button
+    //render the image of the product in the browser as the radio button
+    radioButtonOne.input = randomProductImage1.image.src;
+    radioButtonTwo.input = randomProductImage2.image.src;
+    radioButtonThree.input = randomProductImage3.image.src;
+
+
+    //render the name of the product in the span of the radio button
     productOneSpan.textContent = randomProductImage1.name;
     productTwoSpan.textContent = randomProductImage2.name;
     productThreeSpan.textContent = randomProductImage3.name;
+
+    
 
 }
 
