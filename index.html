@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>BusMall Product Testing</title>
+</head>
+
+<body>
+    <header>
+        <h1>Welcome to BusMall!</h1>
+        <h3>Thank you for participating as part of our focus group to bring you the best products BusMall has to offer on every bus, every time.</h3>
+    </header>
+
+        <form id = "form">
+            <p>Please select which image you would be most likely to purchase...</p>
+            <label>
+                <span id = "product1span"></span>
+                <input id = "product1" type="radio" name="product"/>
+                <img id = "img1" src = "assets/">
+            </label>
+
+            <label>
+                <span id = "product2span"></span>
+                <input id = "product2" type="radio" name="product"/>
+                <img id = "img2" src = "assets/">
+
+            </label>
+
+            <label>
+                <span id = "product3span"></span>
+                <input id = "product3" type="radio" name="product"/>
+                <img id = "img3" src = "assets/">
+            </label>
+
+            <button id = "button">Submit</button>
+        </form>
+    
+    <span id = "results"></span>
+    <script type="module" src="app.js"></script>
+</body>
+
+</html>
