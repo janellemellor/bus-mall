@@ -6,7 +6,7 @@ import { getRandomProduct, findById } from './utils.js';
 const sliceOfProductData = productData.slice();
 
 //get form: 
-const form = document.getElementById('form');
+const form = document.querySelector('form');
 
 //get radio button inputs
 const radioButtonOne = document.getElementById('product1');
@@ -34,10 +34,15 @@ const resultsSpan = document.getElementById('results');
 let numberOfVotes;
 
 //set state to undefined keep track of the number of votes for a given product
-let numberOfProductVotes;
+let productVotes;
 
 //may need to set state to refresh/initialize upon load...
+function state() {
+    numberOfVotes = 0;
+    productVotes = [];
+}
 
+state();
 
 
 //use getRandomProduct Function to display three random images. Import function from utils at top of page.
@@ -77,11 +82,9 @@ function displayRandomProductImages() {
 }
 
 
-
-
 // add an event listener to the form that acts on submit
 form.addEventListener('submit', (event) => {    //prevents the page from auto-refreshing
-    // event.preventDefault();
+    event.preventDefault();
     //gets a new instance of form data
     const formData = new FormData(form);
 
@@ -90,38 +93,52 @@ form.addEventListener('submit', (event) => {    //prevents the page from auto-re
 
     //when they select, update the total number of votes ( we want to count to 25) 
     numberOfVotes++;
+  
+    //use find by id function to look at number of product votes a product has and compare it to the selected product. 
+    const numberOfProductVotes = findById(productVotes, selectedProduct);
+    //if product in votes array exists,
+    if (numberOfProductVotes) {
+        //increase the vote count
+        numberOfProductVotes.votes++;
+        //if there is no votes for the product
+    } else { //push a new product object into the votes array with the id and a vote count of one
+        productVotes.push({
+            id: selectedProduct,
+            votes: 1,
+        });
+
+    }
+    document.querySelector('input[name="product"]:checked').checked = false;
+
+
+    //save votes in local storage
+    localStorage.setItem('votes', JSON.stringify(productVotes));
 
     //if the total number of votes (selections is greater than 25, send the user to the results page) 
     if (numberOfVotes >= 25) {
         window.location = './results';
-        
-    }
 
-    
-})
+    }
+    displayRandomProductImages();
+});
+
+ //reset the whole app when finished
+state();
 
 displayRandomProductImages();
 
 
-//whichever one they clicked on, see if they've voted for it before
-    //if product in votes array exists,
-    //increase the vote count
-
-     //sends the user to a different results page
-
 
 // document.querySelector('button').disable = true;
-// alert('thank you for your participation'); 
-// alert(JASON.stringify(productVoteDetails, 0, 2));
-// reset();
+
+
 
 //check where local storage needs to go
 
-//update the productVoteDetails
- //if there's coffee in the votes array,increment the votes for coffee in the array
-//if there's no coffee in the votes array, push some coffee into the array. 
 
- //reset the whole app when finished
+
+
+
 //set the votes array ([]) and total votes (0) to their initial states
 
 
