@@ -14,18 +14,6 @@ export function getRandomProduct(someProductData) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 // reference find by id from e-commerce? (below):
 // export default function findById(itemId, cartArray) {
 //     for (let i = 0; i < cartArray.length; i++){

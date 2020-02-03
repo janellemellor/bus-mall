@@ -15,6 +15,11 @@ const productOneSpan = document.getElementById('product1span');
 const productTwoSpan = document.getElementById('product2span');
 const productThreeSpan = document.getElementById('product3span');
 
+//get img ids for radio buttons
+const image1 = document.getElementById('img1');
+const image2 = document.getElementById('img2');
+const image3 = document.getElementById('img3');
+
 //get submit button
 const button = document.getElementById('button');
 
@@ -40,10 +45,6 @@ function displayRandomProductImages() {
     let randomProductImage2 = getRandomProduct(sliceOfProductData);
     let randomProductImage3 = getRandomProduct(sliceOfProductData);
 
-    //check if it's working
-    console.log (randomProductImage1);
-    console.log (randomProductImage2);
-    console.log (randomProductImage3);
 
     //while any of the product ids match each other...
     while (randomProductImage1.id === randomProductImage2.id 
@@ -61,9 +62,16 @@ function displayRandomProductImages() {
     radioButtonThree.value = randomProductImage3.id;
 
     //render the image of the product in the browser as the radio button
-    radioButtonOne.input = randomProductImage1.image.src;
-    radioButtonTwo.input = randomProductImage2.image.src;
-    radioButtonThree.input = randomProductImage3.image.src;
+    // radioButtonOne.input = randomProductImage1.image.src;
+    // radioButtonTwo.input = randomProductImage2.image.src;
+    // radioButtonThree.input = randomProductImage3.image.src;
+    
+    image1.src = '../assets/' + randomProductImage1.image;
+    image2.src = '../assets/' + randomProductImage2.image;
+    image3.src = '../assets/' + randomProductImage3.image;
+   
+
+
 
 
     //render the name of the product in the span of the radio button

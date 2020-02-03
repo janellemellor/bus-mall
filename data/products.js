@@ -37,7 +37,7 @@ const productData = [
 
     {
         id: '7',
-        image: 'chiar.jpg',
+        image: 'chair.jpg',
         name: 'red chair',
     },
 
@@ -85,7 +85,7 @@ const productData = [
 
     {
         id: '15',
-        image: 'sweep.jpg',
+        image: 'sweep.png',
         name: 'baby sweeper',
     },
 
@@ -103,7 +103,7 @@ const productData = [
 
     {
         id: '18',
-        image: 'usb.jpg',
+        image: 'usb.gif',
         name: 'octopus usb',
     },
 
