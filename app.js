@@ -129,31 +129,9 @@ displayRandomProductImages();
 
 
 
-// document.querySelector('button').disable = true;
 
 
 
-//check where local storage needs to go
-
-
-
-
-
-//set the votes array ([]) and total votes (0) to their initial states
-
-
-
-// STRETCH NON-duplicated products (refresh products between votes)
-
-
-//STRETCH keep track of how many times a product appears so we can build a percentage (times clicked/times shown)
-
-
-//make vote array for canvas results: 
-
-//Do the same format above for labels using labels in place of votes.
-
-//change "data" to votes in chart.js
 
 
 
