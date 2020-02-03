@@ -1,9 +1,12 @@
 //import data 
 import productData from './data/products.js';
-import { getRandomProduct } from './utils.js';
+import { getRandomProduct, findById } from './utils.js';
 
 //make a copy of original products data
 const sliceOfProductData = productData.slice();
+
+//get form: 
+const form = document.getElementById('form');
 
 //get radio button inputs
 const radioButtonOne = document.getElementById('product1');
@@ -36,7 +39,6 @@ let numberOfProductVotes;
 //may need to set state to refresh/initialize upon load...
 
 
-// make a function to generate a random product (getRandomProduct, now in utils)
 
 //use getRandomProduct Function to display three random images. Import function from utils at top of page.
 function displayRandomProductImages() {
@@ -62,40 +64,44 @@ function displayRandomProductImages() {
     radioButtonThree.value = randomProductImage3.id;
 
     //render the image of the product in the browser as the radio button
-    // radioButtonOne.input = randomProductImage1.image.src;
-    // radioButtonTwo.input = randomProductImage2.image.src;
-    // radioButtonThree.input = randomProductImage3.image.src;
-    
     image1.src = '../assets/' + randomProductImage1.image;
     image2.src = '../assets/' + randomProductImage2.image;
     image3.src = '../assets/' + randomProductImage3.image;
    
-
-
-
 
     //render the name of the product in the span of the radio button
     productOneSpan.textContent = randomProductImage1.name;
     productTwoSpan.textContent = randomProductImage2.name;
     productThreeSpan.textContent = randomProductImage3.name;
 
-    
-
 }
 
+
+
+
+// add an event listener to the form that acts on submit
+form.addEventListener('submit', (event) => {    //prevents the page from auto-refreshing
+    // event.preventDefault();
+    //gets a new instance of form data
+    const formData = new FormData(form);
+
+     //.get eats the name (product is the common name shared by the radio buttons). selectedProduct goes and grabs the info from the radio buttons
+    const selectedProduct = formData.get('product');
+
+    //when they select, update the total number of votes ( we want to count to 25) 
+    numberOfVotes++;
+
+    //if the total number of votes (selections is greater than 25, send the user to the results page) 
+    if (numberOfVotes >= 25) {
+        window.location = './results';
+        
+    }
+
+    
+})
+
 displayRandomProductImages();
-// NON-duplicated products (refresh products between votes)
 
-//render these three items on the screen as radio buttons with the same name (product) and different values
-
-//prevent default keeps the browser from auto-refreshing
-
- //.get eats the name (product is the common name shared by the radio buttons)
-
-//Make EVENT LISTENER
-//add an event listener to each radio button to select one of the three products
-
-//when they select, update the total votes 
 
 //whichever one they clicked on, see if they've voted for it before
     //if product in votes array exists,
@@ -120,7 +126,9 @@ displayRandomProductImages();
 
 
 
-//STRETCH don't show the same product twice in a row?
+// STRETCH NON-duplicated products (refresh products between votes)
+
+
 //STRETCH keep track of how many times a product appears so we can build a percentage (times clicked/times shown)
 
 

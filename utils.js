@@ -1,6 +1,3 @@
-// import productData from './data/products.js';
-//may not need import above
-
 
 // make a function to display three new random images:
     //declare new function getRandomProduct which will take in some, non specific product data (indicated by "some")
@@ -13,15 +10,11 @@ export function getRandomProduct(someProductData) {
 }
 
 
-
-// reference find by id from e-commerce? (below):
-// export default function findById(itemId, cartArray) {
-//     for (let i = 0; i < cartArray.length; i++){
-//         const arrayItem = cartArray[i];
-//         if (itemId === arrayItem.id) {
-//             return arrayItem;
-//         }
-//     }
-//     return null;
-// }
+export function findById(products, productid) {
+    for (let i = 0; i < products.length; i++){
+        const product = products[i];
+        if (product.id === productid) {
+            return product ;
+        }
+    }}
 
